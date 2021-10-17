@@ -1,0 +1,18 @@
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .menu-button {
+      margin-right: 70px;
+      border-color: black;
+      color: green;
+      width: 70px;
+  }
+
+  .small-font {
+      font-size: 15px;
+  }

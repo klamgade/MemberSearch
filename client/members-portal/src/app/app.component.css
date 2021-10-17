@@ -1,0 +1,24 @@
+#app-container {
+    width: 400px;
+    height: 800px;
+    background-color: white;
+    margin: auto;
+}
+
+.drawer-container {
+    height:100%;
+}
+
+.menu-button {
+    margin-right: 15px;
+}
+
+.router-outlet, .note {
+    padding: 1em 2em;
+}
+
+.drawer {
+    height: 93%;
+    margin-top: 65px;
+}
+

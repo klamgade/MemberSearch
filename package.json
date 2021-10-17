@@ -1,0 +1,30 @@
+{
+  "name": "nodeapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "server.js",
+    "start:watch": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "kamal lamgade",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/cli": "^12.2.9",
+    "chalk": "^4.1.2",
+    "convict": "^6.0.1",
+    "convict-format-with-validator": "^6.0.1",
+    "express": "^4.17.1",
+    "express-winston": "^3.1.0",
+    "morgan": "^1.10.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

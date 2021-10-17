@@ -1,0 +1,26 @@
+<div class="container">
+  <div>
+    <h1>Member Search</h1>
+    <form (ngSubmit)="onSearch()" #searchForm="ngForm">
+      <mat-form-field class="form-field" appearance="outline" style="display: block;">
+        <mat-label>Policy Number</mat-label>
+        <input type="number" matInput class="form-control" id="policyNumber" required pattern="^[0-9]*$" [(ngModel)]="model.policyNumber" 
+          name="policyNumber" #name="ngModel" />
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline"  style="display: block;">
+        <mat-label>Member Card Number</mat-label>
+        <input matInput type="text" class="form-control" id="memberCardNumber" [(ngModel)]="model.memberCardNumber"
+          name="memberCardNumber" #name="ngModel" />
+      </mat-form-field>
+
+      <div style="display: flex; justify-content:space-between">
+        <button mat-raised-button color="primary" type="submit" class="button-medium" [disabled]="!searchForm.form.valid">
+          Search
+        </button>
+        <button mat-raised-button color="accent" type="button" class="button-medium" (click)="onReset(); searchForm.reset()">
+         Reset
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

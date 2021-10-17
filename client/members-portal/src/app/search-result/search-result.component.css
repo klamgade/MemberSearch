@@ -1,0 +1,8 @@
+.ul-container {
+    padding: 0 !important;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+}
