@@ -38,7 +38,7 @@ Run npm run start:watch to run the server and with the help of nodemon package i
  - On the server, I've used a repository pattern as well as structured it layering into components like route, handler, repository, etc.
  - On the client side, I've used a angular service which is Singleton. I could have improved it using a Datasource decoupling the logic relatetd with data access into it and the service just connect to it for accesing data.
 
-  ### What could I have improved on: If I was able to manage more time which I couldn't due to my current personal circumstances
+  ### What could I have improved on:
  - Implement the functionality to iterate previous search results or history probabaly using state management tech with angular, authentication, security, improve on navigation and styling and potential if I scale the app, I would improve on the design pattern and performance.
  - At last obviously, I would add good coverage of unit test, integration and e2e test using mocha, jasmine, cypress frameworks then deploy it to a cloud server like aws or azure.
  - I'm also keen to implement the simple json db tech (lowdb). Had a look at it on npm library and found it interesting.
