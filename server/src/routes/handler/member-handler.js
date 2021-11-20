@@ -23,6 +23,24 @@ class MemberHandlers {
         }
     }
 
+    async createMember(req, res) {
+		try {
+            const input = req.body;
+            if(input) {
+                let result = await this.memberRepository.create(input);
+                res.status(200);
+                res.json({
+                    data: result.toObject(),
+                });
+            } else {
+                res.status(400);
+                res.json({ data: null });
+            }
+        } catch (err) {
+            this.handleError(err, res);
+        }
+    }
+
     buildFilter(query) {
         let filter = {};
         if(query.policyNumber) {

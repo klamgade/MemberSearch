@@ -1,10 +1,13 @@
 const logger = require('../utils/logger');
-const getMembersJSON = require('../MOCK_DATA.json');;
+const getMembersJSON = require('../MOCK_DATA.json');
+const Member = require('../models/member');
+ 
 
 class MemberRepository {
     constructor(logger) {
         this.log = logger;
         this.getAll = this.getAll.bind(this);
+        this.create = this.create.bind(this);
     }
 
     async getAll(filter) {
@@ -19,6 +22,10 @@ class MemberRepository {
             }
         });
         return filteredMembers;
+    }
+
+    async create(doc) {
+        return await Member.create(doc);
     }
 }
 
