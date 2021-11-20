@@ -5,6 +5,8 @@ class MemberHandlers {
     constructor(logger) {
         this.memberRepository = new MemberRepository(logger);
         this.getMembers = this.getMembers.bind(this);
+        this.getMemberById = this.getMemberById.bind(this);
+        this.createMember = this.createMember.bind(this);
         this.buildFilter = this.buildFilter.bind(this);
     }
 
@@ -13,11 +15,29 @@ class MemberHandlers {
             const query = req.query;
             const filter = this.buildFilter(query);
             logger.info(`accessing to member repository`);
-            let result = await this.memberRepository.getAll(filter);
+            let result = await this.memberRepository.paged(filter);
             res.status(200);
             res.json({
-                    response: result
+                    data: result
                 }); 
+        } catch (error) {
+            logger.info('error', error)
+        }
+    }
+
+    async getMemberById(req, res) {
+        try {
+            const { id } = req.params;
+            const result = await this.memberRepository.get(id);
+            if(result) {
+                res.status(200);
+                res.json({
+                    data: result,
+                });
+            } else {
+                res.status(404);
+                res.json({ data: null });
+            }
         } catch (error) {
             logger.info('error', error)
         }
@@ -36,8 +56,8 @@ class MemberHandlers {
                 res.status(400);
                 res.json({ data: null });
             }
-        } catch (err) {
-            this.handleError(err, res);
+        } catch (error) {
+            logger.info('error', error);
         }
     }
 
