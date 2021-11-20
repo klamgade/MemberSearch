@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
+const { v4: uuid } = require('uuid');
 
 const memberSchema = new mongoose.Schema({
     _id: {
 		type: String,
-		required: true
+		required: true,
+		default: uuid
 	},
     id: {
 		type: Number,
@@ -27,6 +29,9 @@ const memberSchema = new mongoose.Schema({
     dateOfBirth: {
 		type: String
 	},
+	mobileNumber: {
+		type: String
+	}
 });
 
 module.exports = mongoose.model('Member', memberSchema )

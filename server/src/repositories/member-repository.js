@@ -45,7 +45,7 @@ class MemberRepository {
     }
 
     async get(identifier) {
-        const result = await Member.findOne({ id: identifier}).exec();
+        const result = await Member.findOne({ _id: identifier}).exec();
         return result;
     }
 
