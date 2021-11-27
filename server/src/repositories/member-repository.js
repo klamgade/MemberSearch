@@ -8,6 +8,7 @@ class MemberRepository {
         this.log = logger;
         this.getAll = this.getAll.bind(this);
         this.create = this.create.bind(this);
+        this.get = this.get.bind(this);
     }
 
     async getAll(filter) {
@@ -24,8 +25,33 @@ class MemberRepository {
         return filteredMembers;
     }
 
+    async paged(filter, sortBy, page, perPage) {
+        let results = [];
+
+        let count = await Member.count(filter).exec();
+        if(count > 0) {
+            results = await Member
+                .find(filter)
+                .sort(sortBy)
+                .lean()
+                .limit(Number(perPage))
+                .skip(perPage * page)
+                .exec();   
+        }
+        return {
+            total: count,
+            items: results
+        }
+    }
+
+    async get(identifier) {
+        const result = await Member.findOne({ _id: identifier}).exec();
+        return result;
+    }
+
     async create(doc) {
-        return await Member.create(doc);
+        const result = await Member.create(doc);
+        return result;
     }
 }
 

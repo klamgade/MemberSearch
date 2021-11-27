@@ -36,26 +36,22 @@ let config = convict({
 		name: {
 			doc: 'database name',
 			format: '*',
-			default: 'task'
+			default: 'membersearch'
 		},
 		uri: {
 			doc: 'database uri',
-			format: '*'
+			format: '*',
+			default: 'mongodb:27017'
 		},
 		username: {
 			doc: 'username for database',
 			format: '*',
-			default: null,
+			default: 'kamal-prakash',
 		},
 		pass: {
 			doc: 'password for database',
 			format: '*',
-			default: null,
-		},
-		opts: {
-			doc: 'Additional options for database connection',
-			format: '*',
-			default: 'null'
+			default: 'test123',
 		}
 	}
 });

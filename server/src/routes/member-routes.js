@@ -6,5 +6,6 @@ module.exports = (app, log) => {
     const handlers = new MemberHandlers(log);
     logger.info(`navigating to members routes`);
     app.get(`${API_ROOT}`, handlers.getMembers);
+    app.get(`${API_ROOT}/:id`, handlers.getMemberById);
     app.post(`${API_ROOT}`, handlers.createMember);
 }
